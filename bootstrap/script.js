@@ -41,8 +41,6 @@ const mobileNavbar = new MobileNavbar(
 );
 mobileNavbar.init();
 
-// console.log(mobileNavbar)
-
 // Carrosel das skills
 
 new Swiper('.swiper', {
@@ -76,13 +74,25 @@ accordions.forEach(accordion => {
 })();
 
 window.onload = function() {
-  const form = document.querySelector("form")
+  const form = document.querySelector("form");
 
   form.addEventListener("submit", function(event) {
     event.preventDefault(); //Previne o recarregamento da página
 
     const templateParams = {
-      
-    }
-  })
-}
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      message: document.getElementById("message").value,
+      title: document.getElementById("title").value
+    };
+
+    emailjs.send("service_m1tx2ps", "template_ftn9fia", templateParams)
+    .then(function(response) {
+      alert("E-mail enviado com sucesso!");
+      console.log("Sucesso!", response);
+    }, function(error) {
+      alert("Falha no envio do e-mail. Olhe a console para mais detalhes.");
+      console.error("Erro...", error);
+    });
+  });
+};
