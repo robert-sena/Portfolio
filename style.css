@@ -112,6 +112,10 @@ li {
     /* background-color: aqua; */
 }
 
+.bg-teste {
+    background-color: aqua;
+}
+
 .card-list {
     width: 100%;
     height: auto;
@@ -140,6 +144,7 @@ li {
 
 .img-card {
     max-width: 185px;
+    min-width: 160px;
     height: auto;
 }
 
